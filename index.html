@@ -252,6 +252,78 @@
     footer { padding: 28px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: .84rem; }
     .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 18px; }
     footer p { margin: 0; }
+    .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+    .chat-launcher {
+      position: fixed;
+      z-index: 30;
+      right: max(20px, env(safe-area-inset-right));
+      bottom: max(20px, env(safe-area-inset-bottom));
+      display: inline-flex;
+      min-height: 54px;
+      align-items: center;
+      gap: 10px;
+      padding: 0 20px;
+      border: 0;
+      border-radius: 999px;
+      background: var(--rose-dark);
+      color: #fff;
+      box-shadow: 0 10px 28px rgba(75, 37, 42, .24);
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .chat-launcher:hover { background: var(--rose); }
+    .chat-launcher:focus-visible, .chat-close:focus-visible, .chat-send:focus-visible,
+    .chat-suggestion:focus-visible, .chat-input:focus-visible { outline: 3px solid #c77a83; outline-offset: 3px; }
+    .chat-launcher svg { width: 22px; height: 22px; }
+    .chat-panel {
+      position: fixed;
+      z-index: 31;
+      right: max(20px, env(safe-area-inset-right));
+      bottom: max(86px, calc(env(safe-area-inset-bottom) + 78px));
+      display: flex;
+      width: min(380px, calc(100vw - 28px));
+      height: min(560px, calc(100dvh - 112px));
+      flex-direction: column;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: var(--paper);
+      box-shadow: 0 20px 65px rgba(68, 41, 40, .2);
+    }
+    .chat-panel[hidden] { display: none; }
+    .chat-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 17px 18px; background: var(--rose-dark); color: white; }
+    .chat-heading { display: flex; align-items: center; gap: 11px; }
+    .chat-mark { display: grid; width: 38px; height: 38px; flex: 0 0 auto; place-items: center; border-radius: 50%; background: rgba(255,255,255,.16); font-family: var(--serif); font-size: 1.2rem; }
+    .chat-heading strong, .chat-heading span { display: block; }
+    .chat-heading strong { font-size: .95rem; }
+    .chat-heading span { color: #f1deda; font-size: .76rem; }
+    .chat-close { display: grid; width: 40px; height: 40px; flex: 0 0 auto; place-items: center; border: 1px solid rgba(255,255,255,.28); border-radius: 50%; background: transparent; color: white; font-size: 1.3rem; cursor: pointer; }
+    .chat-close:hover { background: rgba(255,255,255,.12); }
+    .chat-messages { display: flex; flex: 1; flex-direction: column; gap: 12px; overflow-y: auto; padding: 17px; scroll-behavior: smooth; }
+    .chat-message { max-width: 90%; padding: 11px 13px; border-radius: 15px; font-size: .9rem; line-height: 1.5; overflow-wrap: anywhere; }
+    .chat-message p { margin: 0; }
+    .chat-message p + p { margin-top: 8px; }
+    .chat-bot { align-self: flex-start; border: 1px solid var(--line); border-top-left-radius: 5px; background: #fff; }
+    .chat-user { align-self: flex-end; border-top-right-radius: 5px; background: var(--peach-light); color: var(--rose-dark); }
+    .chat-link-group { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 9px; }
+    .chat-link { display: inline-flex; min-height: 40px; align-items: center; justify-content: center; gap: 7px; padding: 7px 11px; border: 1px solid #e6cfc8; border-radius: 999px; background: #fff; color: var(--rose-dark); font-size: .82rem; font-weight: 700; text-decoration: none; }
+    .chat-link:hover { border-color: var(--rose); background: var(--peach-light); }
+    .chat-link-icon { width: 26px; height: 26px; }
+    .chat-link-contact { width: 44px; height: 44px; padding: 8px; }
+    .chat-link-contact .chat-link-icon { width: 25px; height: 25px; }
+    .chat-link-whatsapp { color: #25a85a; }
+    .chat-link-email { color: #c8433b; }
+    .chat-suggestions { display: flex; flex-wrap: wrap; gap: 7px; padding: 0 15px 13px; }
+    .chat-suggestion { min-height: 38px; padding: 7px 11px; border: 1px solid #e6cfc8; border-radius: 999px; background: #fff; color: var(--rose-dark); font: inherit; font-size: .78rem; cursor: pointer; }
+    .chat-suggestion:hover { background: var(--peach-light); }
+    .chat-form { display: flex; align-items: center; gap: 9px; padding: 12px 14px; border-top: 1px solid var(--line); background: #fff; }
+    .chat-input { width: 100%; min-width: 0; min-height: 44px; padding: 9px 12px; border: 1px solid var(--line); border-radius: 12px; color: var(--ink); font: inherit; font-size: .9rem; }
+    .chat-input::placeholder { color: #8b7f7f; }
+    .chat-send { min-width: 44px; min-height: 44px; border: 0; border-radius: 12px; background: var(--rose); color: white; font: inherit; font-weight: 800; cursor: pointer; }
+    .chat-send:hover { background: var(--rose-dark); }
+    .chat-note { margin: 0; padding: 0 15px 12px; background: #fff; color: var(--muted); font-size: .72rem; }
 
     @media (max-width: 760px) {
       .wrap { width: min(100% - 34px, 600px); }
@@ -281,6 +353,8 @@
       .contact-card { padding: 24px; }
       .profile-card { min-height: 230px; }
       .footer-inner { align-items: flex-start; flex-direction: column; }
+      .chat-launcher { right: max(14px, env(safe-area-inset-right)); bottom: max(14px, env(safe-area-inset-bottom)); min-height: 50px; padding-inline: 16px; }
+      .chat-panel { right: max(10px, env(safe-area-inset-right)); bottom: max(74px, calc(env(safe-area-inset-bottom) + 66px)); width: min(380px, calc(100vw - 20px)); height: min(560px, calc(100dvh - 92px)); }
     }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
@@ -323,7 +397,7 @@
       </div>
     </section>
 
-    <section class="section section-soft" aria-labelledby="latest-title">
+    <section class="section section-soft" id="dashboard-artikel" aria-labelledby="latest-title">
       <div class="wrap">
         <div class="section-head">
           <div>
@@ -423,15 +497,15 @@
             <div class="contact-avatar" aria-hidden="true">P</div>
             <div><strong>Sucitra Afrianty, A.Md.Keb.</strong><span>Kontak person aduan PARAANTA</span></div>
           </div>
-          <div class="contact-actions" aria-label="Kanal kontak">
-            <a class="button button-whatsapp" href="https://wa.me/6282293644399" target="_blank" rel="noopener noreferrer" aria-label="Hubungi Sucitra Afrianty melalui WhatsApp" title="WhatsApp">
-              <svg viewBox="0 0 448 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M380.9 97.1C339 55.2 283.2 32 223.9 32 101.5 32 1.9 131.5 1.9 253.9c0 39.2 10.3 77.4 29.9 111.1L0 480l118.4-31.1c32.6 17.8 69.4 27.2 105.4 27.2h.1c122.4 0 222-99.6 222-222 0-59.3-23.1-115-65-157zm-157 341.6c-32.9 0-65.2-8.9-93.4-25.7l-6.7-4-70.2 18.4 18.7-68.4-4.3-7A184.8 184.8 0 0 1 39.4 254c0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1a184.1 184.1 0 0 1 54.1 130.5c0 101.8-82.8 184.6-184.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.7-3.2 3.7-6.5 4.2-12 1.4-32.8-16.4-54.3-29.3-76-66.5-5.7-9.8 5.7-9.1 16.4-30.4 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2s-9.7 1.4-14.8 6.9c-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.7 83.8 35.2 15.2 49 16.6 66.6 13.9 10.1-1.5 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.3-5-3.7-10.6-6.5z"/></svg>
-            </a>
-            <a class="button button-email" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=sucidewa13%40gmail.com" target="_blank" rel="noopener noreferrer" aria-label="Tulis email kepada sucidewa13@gmail.com di Gmail" title="Email melalui Gmail">
-              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m4 7 8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
+            <div class="contact-actions" aria-label="Kanal kontak">
+              <a class="button button-whatsapp" href="https://wa.me/6282293644399" target="_blank" rel="noopener noreferrer" aria-label="Hubungi Sucitra Afrianty melalui WhatsApp" title="WhatsApp">
+                <svg viewBox="0 0 448 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M380.9 97.1C339 55.2 283.2 32 223.9 32 101.5 32 1.9 131.5 1.9 253.9c0 39.2 10.3 77.4 29.9 111.1L0 480l118.4-31.1c32.6 17.8 69.4 27.2 105.4 27.2h.1c122.4 0 222-99.6 222-222 0-59.3-23.1-115-65-157zm-157 341.6c-32.9 0-65.2-8.9-93.4-25.7l-6.7-4-70.2 18.4 18.7-68.4-4.3-7A184.8 184.8 0 0 1 39.4 254c0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1a184.1 184.1 0 0 1 54.1 130.5c0 101.8-82.8 184.6-184.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.7-3.2 3.7-6.5 4.2-12 1.4-32.8-16.4-54.3-29.3-76-66.5-5.7-9.8 5.7-9.1 16.4-30.4 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2s-9.7 1.4-14.8 6.9c-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.7 83.8 35.2 15.2 49 16.6 66.6 13.9 10.1-1.5 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.3-5-3.7-10.6-6.5z"/></svg>
+              </a>
+              <a class="button button-email" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=sucidewa13%40gmail.com" target="_blank" rel="noopener noreferrer" aria-label="Tulis email kepada sucidewa13@gmail.com di Gmail" title="Email melalui Gmail">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m4 7 8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
           </div>
-          <p class="contact-footnote">Pilih ikon yang sesuai untuk mulai menghubungi kami. Mohon hindari mengirimkan data medis atau identitas yang tidak diperlukan.</p>
+            <p class="contact-footnote">Pilih ikon yang sesuai untuk mulai menghubungi kami. Mohon hindari mengirimkan data medis atau identitas yang tidak diperlukan.</p>
         </div>
       </div>
     </section>
@@ -462,5 +536,186 @@
       <p>Informasi edukatif, bukan pengganti saran tenaga kesehatan.</p>
     </div>
   </footer>
+
+  <button class="chat-launcher" id="chat-launcher" type="button" aria-expanded="false" aria-controls="paraanta-chat">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 4h16a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2h-4.5L12 22l-3.5-3H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm2.2 5.1a1 1 0 0 0 0 2h11.6a1 1 0 0 0 0-2H6.2Zm0 4a1 1 0 0 0 0 2h7.6a1 1 0 0 0 0-2H6.2Z"/></svg>
+    Tanya PARAANTA
+  </button>
+  <section class="chat-panel" id="paraanta-chat" role="dialog" aria-labelledby="chat-title" aria-modal="false" hidden>
+    <header class="chat-header">
+      <div class="chat-heading">
+        <div class="chat-mark" aria-hidden="true">P</div>
+        <div><strong id="chat-title">Asisten informasi PARAANTA</strong><span>Jawaban dari isi situs</span></div>
+      </div>
+      <button class="chat-close" id="chat-close" type="button" aria-label="Tutup chatbot">×</button>
+    </header>
+    <div class="chat-messages" id="chat-messages" role="log" aria-live="polite" aria-relevant="additions text">
+      <div class="chat-message chat-bot"><p>Halo! Ada yang ingin Anda cari tahu tentang PARAANTA? Tulis pertanyaan Anda, ya. Saya akan bantu mencarikan bagian yang sesuai.</p></div>
+    </div>
+    <div class="chat-suggestions" aria-label="Pertanyaan yang sering diajukan">
+      <button class="chat-suggestion" type="button" data-question="Apa itu PARAANTA?">Apa itu PARAANTA?</button>
+      <button class="chat-suggestion" type="button" data-question="Panduan apa yang tersedia?">Panduan</button>
+      <button class="chat-suggestion" type="button" data-question="Bagaimana cara mengusulkan artikel?">Usulkan artikel</button>
+      <button class="chat-suggestion" type="button" data-question="Bagaimana cara menghubungi pengelola?">Kontak pengelola</button>
+    </div>
+    <form class="chat-form" id="chat-form">
+      <label class="visually-hidden" for="chat-input">Tulis pertanyaan tentang PARAANTA</label>
+      <input class="chat-input" id="chat-input" name="question" type="text" maxlength="240" autocomplete="off" placeholder="Tulis pertanyaan…" required>
+      <button class="chat-send" type="submit" aria-label="Kirim pertanyaan">➤</button>
+    </form>
+    <p class="chat-note">Chat tidak disimpan. Informasi edukatif, bukan diagnosis atau pengganti saran tenaga kesehatan.</p>
+  </section>
+  <script>
+    (() => {
+      const launcher = document.getElementById('chat-launcher');
+      const panel = document.getElementById('paraanta-chat');
+      const closeButton = document.getElementById('chat-close');
+      const messages = document.getElementById('chat-messages');
+      const form = document.getElementById('chat-form');
+      const input = document.getElementById('chat-input');
+      const suggestions = document.querySelectorAll('.chat-suggestion');
+
+      function setOpen(open) {
+        panel.hidden = !open;
+        launcher.setAttribute('aria-expanded', String(open));
+        if (open) input.focus();
+        else launcher.focus();
+      }
+
+      function contactLinks() {
+        return Array.from(document.querySelectorAll('#aduan .contact-actions a')).map((anchor) => ({
+          href: anchor.href,
+          label: anchor.getAttribute('aria-label') || anchor.title,
+          title: anchor.title,
+          target: anchor.target,
+          rel: anchor.rel,
+          icon: anchor.querySelector('svg')?.cloneNode(true),
+          channel: anchor.classList.contains('button-whatsapp') ? 'whatsapp' : 'email',
+          contact: true,
+        }));
+      }
+
+      function addMessage(text, who, links) {
+        const message = document.createElement('div');
+        message.className = `chat-message ${who === 'user' ? 'chat-user' : 'chat-bot'}`;
+        const paragraph = document.createElement('p');
+        paragraph.textContent = text;
+        message.append(paragraph);
+        if (links?.length) {
+          const linkGroup = document.createElement('div');
+          linkGroup.className = 'chat-link-group';
+          links.forEach((link) => {
+            const anchor = document.createElement('a');
+            anchor.className = ['chat-link', link.contact ? 'chat-link-contact' : '', link.channel ? `chat-link-${link.channel}` : ''].filter(Boolean).join(' ');
+            anchor.href = link.href;
+            anchor.setAttribute('aria-label', link.label);
+            if (link.title) anchor.title = link.title;
+            if (link.target) anchor.target = link.target;
+            if (link.rel) anchor.rel = link.rel;
+            if (link.icon) {
+              link.icon.classList.add('chat-link-icon');
+              anchor.append(link.icon);
+            } else {
+              anchor.textContent = link.label;
+            }
+            linkGroup.append(anchor);
+          });
+          message.append(linkGroup);
+        }
+        messages.append(message);
+        messages.scrollTop = messages.scrollHeight;
+      }
+
+      function sectionLink(href, label) {
+        return { href, label };
+      }
+
+      function answerFor(question) {
+        const q = question.toLocaleLowerCase('id-ID').normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+        const asksToContact = /aduan|kontak|hubungi|whatsapp|\bwa\b|email|gmail|konsultasi|pertanyaan|masukan/.test(q);
+        const asksAboutWriting = /usul|kirim|mengirim|menulis|naskah|karya|kontribusi|penulis|submit|sumbang|menyumbang|menawarkan|publikasi|memuat|menerbit|izin|ijin|setuju/.test(q)
+          || /(?:cara|bagaimana|gimana).{0,45}(?:terbit|menerbit|publikasi|mengusul|mengirim)/.test(q)
+          || /proses penerbitan/.test(q);
+        const asksForLatest = /terbaru|terbit|ada artikel|artikel apa|artikel terbaru|sudah ada|sudah terbit/.test(q);
+        const asksForSpecificGuidance = /bagaimana|gimana|cara|tips|mengatasi|mencegah|merawat|menangani|aman|bolehkah|apa yang harus/.test(q)
+          && /kehamil|hamil|persalin|bayi|orang tua|orangtua|pengasuhan|parenting|menyusui|asi/.test(q);
+
+        if (/darurat|pendarahan|perdarahan|sesak|nyeri|sakit|gejala|keluhan|obat|diagnosis|diagnosa|mual|pusing|kontraksi|demam/.test(q)) {
+          return {
+            text: 'Saya belum bisa menilai keluhan atau memberi saran obat lewat chatbot. Untuk masalah kesehatan, silakan hubungi dokter atau bidan. Jika terasa darurat, segera cari layanan kesehatan darurat. Untuk menghubungi pengelola PARAANTA, Anda juga bisa memilih salah satu kanal berikut.',
+            links: contactLinks(),
+          };
+        }
+        if (asksToContact) {
+          return {
+            text: 'Tentu. Untuk menyampaikan pertanyaan, masukan, atau aduan kepada Sucitra Afrianty, A.Md.Keb., silakan pilih WhatsApp atau email. Ikon ini akan membuka kanal yang Anda pilih.',
+            links: contactLinks(),
+          };
+        }
+        if (asksForSpecificGuidance) {
+          return {
+            text: 'Saya belum menemukan panduan terperinci untuk pertanyaan itu di situs PARAANTA. Untuk informasi yang sesuai dengan kondisi Anda, sebaiknya berkonsultasi dengan dokter atau bidan. Anda juga bisa menghubungi pengelola melalui WhatsApp atau email.',
+            links: contactLinks(),
+          };
+        }
+        if (/artikel|tulisan|naskah|karya|kontributor|penulis|menulis|submit|publikasi/.test(q)) {
+          if (asksAboutWriting) {
+            return {
+              text: 'Boleh. Jika Anda punya ide atau naskah untuk dibagikan, sampaikan kepada pengelola lewat WhatsApp atau email. Tulisan akan ditinjau, dan karya kontributor baru diterbitkan setelah mendapat izin penulis.',
+              links: [sectionLink('#artikel', 'Lihat alur kontribusi'), ...contactLinks()],
+            };
+          }
+          const empty = document.querySelector('#dashboard-artikel .empty-articles');
+          if (asksForLatest && !empty) {
+            return {
+              text: 'Silakan lihat dashboard untuk membaca artikel yang tersedia. Tulisan kontributor diterbitkan setelah mendapat izin penulis.',
+              links: [sectionLink('#dashboard-artikel', 'Buka dashboard artikel')],
+            };
+          }
+          return {
+            text: 'Saat ini belum ada artikel yang terbit di PARAANTA, jadi saya belum menemukan tulisan yang membahas pertanyaan itu. Anda bisa melihat topik umum di bagian Panduan atau berkonsultasi langsung dengan pengelola melalui WhatsApp atau email.',
+            links: [sectionLink('#panduan', 'Lihat Panduan'), ...contactLinks()],
+          };
+        }
+        if (/panduan|kehamil|hamil|orang tua|orangtua|pengasuhan|parenting|ibu|bayi|persalinan/.test(q)) {
+          return {
+            text: 'Di bagian Panduan, PARAANTA membahas kehamilan sehat, persiapan menjadi orang tua, dan pengasuhan awal. Materinya bersifat edukatif, ya, dan tidak menggantikan pemeriksaan atau saran dokter maupun bidan.',
+            links: [sectionLink('#panduan', 'Buka bagian Panduan')],
+          };
+        }
+        if (/siapa|profil|profile|pengelola|tentang|tujuan|arti paraanta|apa itu paraanta|kepanjangan/.test(q)) {
+          return {
+            text: 'PARAANTA (Parenting and Healthy Pregnancy Talks) adalah ruang informasi, cerita, dan konsultasi tentang kehamilan serta persiapan menjadi orang tua. Situs ini dikelola oleh Sucitra Afrianty, A.Md.Keb.',
+            links: [sectionLink('#tentang', 'Kenali PARAANTA')],
+          };
+        }
+        return {
+          text: 'Maaf, saya belum menemukan informasi itu di isi PARAANTA. Supaya pertanyaan Anda bisa dibantu lebih lanjut, silakan berkonsultasi dengan pengelola melalui WhatsApp atau email.',
+          links: contactLinks(),
+        };
+      }
+
+      function submitQuestion(question) {
+        const cleanQuestion = question.trim();
+        if (!cleanQuestion) return;
+        addMessage(cleanQuestion, 'user');
+        const answer = answerFor(cleanQuestion);
+        addMessage(answer.text, 'bot', answer.links);
+      }
+
+      launcher.addEventListener('click', () => setOpen(panel.hidden));
+      closeButton.addEventListener('click', () => setOpen(false));
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        submitQuestion(input.value);
+        input.value = '';
+        input.focus();
+      });
+      suggestions.forEach((button) => button.addEventListener('click', () => submitQuestion(button.dataset.question)));
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && !panel.hidden) setOpen(false);
+      });
+    })();
+  </script>
 </body>
 </html>
