@@ -3,243 +3,464 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>PARAANTA — Teman Perjalanan Kehamilan</title>
+  <meta name="description" content="PARAANTA adalah ruang informasi, cerita, dan konsultasi seputar kehamilan serta persiapan menjadi orang tua.">
+  <meta name="theme-color" content="#fff9f5">
+  <title>PARAANTA — Ruang Cerita dan Informasi</title>
   <style>
     :root {
-      --cream: #fffaf5;
-      --peach: #f4d7c8;
-      --rose: #a65360;
-      --ink: #332b2b;
-      --muted: #706563;
-      --white: #fff;
+      color-scheme: light;
+      --cream: #fff9f5;
+      --paper: #fffdfb;
+      --peach: #f5ded4;
+      --peach-light: #fbede7;
+      --rose: #a24e5b;
+      --rose-dark: #763944;
+      --ink: #33292a;
+      --muted: #75696a;
+      --line: #ecdfd9;
+      --sage: #667963;
+      --shadow: 0 24px 70px rgba(89, 52, 49, .09);
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Aptos", "Segoe UI", Arial, sans-serif;
     }
 
     * { box-sizing: border-box; }
-
+    html { scroll-behavior: smooth; scroll-padding-top: 100px; }
     body {
       margin: 0;
       background: var(--cream);
       color: var(--ink);
-      font-family: Arial, sans-serif;
+      font-family: var(--sans);
       line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
     }
-
     a { color: inherit; }
+    a:focus-visible { outline: 3px solid #c77a83; outline-offset: 4px; border-radius: 5px; }
+    .wrap { width: min(1120px, calc(100% - 44px)); margin-inline: auto; }
 
-    nav {
-      max-width: 1080px;
-      margin: auto;
-      padding: 22px;
+    .site-header {
+      position: sticky;
+      z-index: 10;
+      top: 0;
+      border-bottom: 1px solid rgba(236, 223, 217, .8);
+      background: rgba(255, 249, 245, .92);
+      backdrop-filter: blur(16px);
+    }
+    .nav {
+      min-height: 82px;
       display: flex;
+      align-items: center;
       justify-content: space-between;
-      align-items: center;
+      gap: 32px;
     }
-
-    .brand {
-      color: var(--rose);
-      font-size: 1.35rem;
-      font-weight: 800;
-      letter-spacing: .12em;
+    .brand { display: inline-flex; align-items: center; flex: 0 0 auto; text-decoration: none; }
+    .brand img { display: block; width: 178px; height: auto; }
+    .nav-links { display: flex; align-items: center; gap: 30px; }
+    .nav-links a {
+      color: #5f5353;
       text-decoration: none;
+      font-size: .91rem;
+      font-weight: 600;
+      transition: color .2s ease;
+    }
+    .nav-links a:hover { color: var(--rose); }
+    .nav-links .nav-cta {
+      padding: 10px 18px;
+      border: 1px solid #e9d2cb;
+      border-radius: 999px;
+      color: var(--rose-dark);
+      background: #fff;
     }
 
-    .brand img {
-      display: block;
-      width: 190px;
-      height: auto;
-    }
-
-    .nav-links { display: flex; gap: 22px; }
-    .nav-links a { text-decoration: none; font-size: .95rem; }
-
-    .hero {
-      max-width: 1080px;
-      margin: 28px auto 70px;
-      padding: 45px 22px;
+    .hero { padding: 70px 0 78px; }
+    .hero-inner {
+      position: relative;
       display: grid;
-      grid-template-columns: 1.2fr .8fr;
+      grid-template-columns: 1.14fr .86fr;
       align-items: center;
-      gap: 38px;
+      gap: 70px;
+      min-height: 430px;
     }
-
     .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 15px;
       color: var(--rose);
-      font-weight: 700;
-      letter-spacing: .08em;
+      font-size: .76rem;
+      font-weight: 800;
+      letter-spacing: .16em;
       text-transform: uppercase;
-      font-size: .8rem;
     }
-
-    h1 {
-      max-width: 650px;
-      margin: 12px 0;
-      font-family: Georgia, serif;
-      font-size: clamp(2.5rem, 6vw, 4.6rem);
-      line-height: 1.08;
-    }
-
-    .intro { max-width: 570px; color: var(--muted); font-size: 1.08rem; }
-
+    .eyebrow::before { width: 24px; height: 1px; background: currentColor; content: ""; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2 { font-family: var(--serif); font-weight: 500; letter-spacing: -.035em; }
+    h1 { max-width: 670px; margin-bottom: 20px; font-size: clamp(3rem, 6.3vw, 5.5rem); line-height: 1.02; }
+    h1 em { color: var(--rose); font-weight: 400; }
+    .hero-copy { max-width: 570px; margin-bottom: 0; color: var(--muted); font-size: 1.08rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
     .button {
-      display: inline-block;
-      margin-top: 14px;
-      padding: 12px 20px;
+      display: inline-flex;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 11px 20px;
+      border: 1px solid transparent;
       border-radius: 999px;
       background: var(--rose);
-      color: var(--white);
-      text-decoration: none;
+      color: #fff;
+      font-size: .91rem;
       font-weight: 700;
+      text-decoration: none;
+      transition: background .2s ease, transform .2s ease;
     }
+    .button:hover { transform: translateY(-2px); background: var(--rose-dark); }
+    .button-secondary { border-color: var(--line); background: transparent; color: var(--ink); }
+    .button-secondary:hover { border-color: var(--rose); background: #fff; color: var(--rose-dark); }
+    .button-whatsapp {
+      width: 50px;
+      min-height: 50px;
+      padding: 0;
+      border-radius: 50%;
+      background: #25d366;
+      color: #fff;
+      box-shadow: 0 5px 14px rgba(37, 211, 102, .2);
+    }
+    .button-whatsapp svg { width: 26px; height: 30px; }
+    .button-whatsapp:hover { background: #1da851; }
+    .button-email {
+      width: 50px;
+      min-height: 50px;
+      padding: 0;
+      border: 1px solid #eadbd6;
+      border-radius: 50%;
+      background: #fff;
+      color: #c8433b;
+      box-shadow: 0 5px 14px rgba(89, 52, 49, .08);
+    }
+    .button-email svg { width: 25px; height: 25px; }
+    .button-email:hover { border-color: #d7aaa3; background: #fff7f5; color: #a52d2b; }
+    .button-muted { border-color: var(--line); background: #f7f2ef; color: #7f7473; cursor: not-allowed; }
+    .button-muted:hover { transform: none; background: #f7f2ef; }
 
-    .hero-card {
-      min-height: 310px;
-      padding: 35px;
-      border-radius: 48% 48% 24px 24px;
+    .hero-art {
+      position: relative;
+      display: grid;
+      min-height: 370px;
+      place-items: center;
+      overflow: hidden;
+      border-radius: 46% 46% 24px 24px;
       background: var(--peach);
-      display: grid;
-      place-content: center;
-      text-align: center;
     }
-
-    .hero-card .symbol { font-size: 5rem; }
-    .hero-card p { max-width: 230px; margin: 5px auto; font-family: Georgia, serif; font-size: 1.35rem; }
-
-    section {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 42px 22px;
+    .hero-art::before, .hero-art::after { position: absolute; border-radius: 50%; content: ""; }
+    .hero-art::before { width: 310px; height: 310px; border: 1px solid rgba(162, 78, 91, .2); }
+    .hero-art::after { width: 250px; height: 250px; border: 1px solid rgba(162, 78, 91, .18); }
+    .sun { position: absolute; top: 45px; right: 70px; width: 45px; height: 45px; border-radius: 50%; background: #f8f0d7; }
+    .flower { position: relative; z-index: 1; color: var(--rose); font-size: 7rem; line-height: 1; }
+    .hero-note {
+      position: absolute;
+      right: -14px;
+      bottom: 32px;
+      max-width: 210px;
+      padding: 17px 20px;
+      border: 1px solid rgba(236, 223, 217, .8);
+      border-radius: 16px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+      font-family: var(--serif);
+      font-size: 1.06rem;
+      line-height: 1.35;
+      transform: rotate(2deg);
     }
+    .hero-note span { display: block; margin-bottom: 5px; color: var(--sage); font-family: var(--sans); font-size: .67rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
 
-    h2 { font-family: Georgia, serif; font-size: 2.2rem; margin: 0 0 10px; }
-    .section-intro { color: var(--muted); max-width: 650px; }
+    .section { padding: 76px 0; }
+    .section-soft { background: #f8eee9; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-bottom: 30px; }
+    .section-head h2, .section-title { margin: 0; font-size: clamp(2.15rem, 4vw, 3.1rem); line-height: 1.12; }
+    .section-head p { max-width: 510px; margin: 0; color: var(--muted); }
+    .section-intro { max-width: 680px; margin-bottom: 32px; color: var(--muted); }
+    .section-kicker { margin-bottom: 10px; }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      margin-top: 25px;
+    .dashboard-grid { display: grid; grid-template-columns: 1.45fr .75fr; gap: 20px; }
+    .panel {
+      min-height: 260px;
+      padding: 30px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: var(--paper);
     }
+    .panel-label { display: flex; align-items: center; gap: 9px; margin-bottom: 20px; color: var(--sage); font-size: .74rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+    .panel-label::before { width: 8px; height: 8px; border-radius: 50%; background: #82917c; content: ""; }
+    .empty-articles { display: grid; grid-template-columns: 64px 1fr; align-items: start; gap: 18px; padding: 24px; border-radius: 16px; background: var(--peach-light); }
+    .book-icon { display: grid; width: 58px; height: 58px; place-items: center; border-radius: 18px; background: #fffaf7; color: var(--rose); font-family: var(--serif); font-size: 1.8rem; }
+    .empty-articles h3 { margin: 2px 0 6px; font-family: var(--serif); font-size: 1.45rem; font-weight: 500; }
+    .empty-articles p { margin: 0; color: var(--muted); font-size: .94rem; }
+    .dashboard-aside { display: flex; flex-direction: column; justify-content: space-between; background: #f0f2eb; }
+    .dashboard-aside .panel-label { color: var(--sage); }
+    .dashboard-aside h3 { max-width: 250px; margin: 0 0 12px; font-family: var(--serif); font-size: 1.9rem; font-weight: 500; line-height: 1.12; }
+    .dashboard-aside p { color: var(--muted); font-size: .93rem; }
+    .text-link { display: inline-flex; align-items: center; gap: 8px; color: var(--rose-dark); font-size: .91rem; font-weight: 800; text-decoration: none; }
+    .text-link:hover { text-decoration: underline; text-underline-offset: 4px; }
 
-    .tile {
-      background: var(--white);
-      border: 1px solid #f0e6df;
-      border-radius: 18px;
-      padding: 23px;
+    .guide-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 30px; }
+    .guide-card { padding: 25px; border: 1px solid var(--line); border-radius: 18px; background: var(--paper); }
+    .guide-number { display: inline-grid; width: 38px; height: 38px; margin-bottom: 20px; place-items: center; border-radius: 50%; background: var(--peach-light); color: var(--rose); font-family: var(--serif); }
+    .guide-card h3 { margin-bottom: 8px; color: var(--rose-dark); font-family: var(--serif); font-size: 1.35rem; font-weight: 500; }
+    .guide-card p { margin-bottom: 0; color: var(--muted); font-size: .93rem; }
+    .note { margin-top: 24px; padding: 17px 20px; border-left: 3px solid var(--sage); border-radius: 0 10px 10px 0; background: #edf0e9; color: #586353; font-size: .9rem; }
+
+    .article-layout { display: grid; grid-template-columns: 1fr .8fr; gap: 20px; }
+    .contribute-panel { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; background: var(--rose-dark); color: #fff9f5; }
+    .contribute-panel .panel-label { color: #f2d7ce; }
+    .contribute-panel .panel-label::before { background: #f2d7ce; }
+    .contribute-panel h3 { max-width: 370px; margin-bottom: 12px; font-family: var(--serif); font-size: 2rem; font-weight: 500; line-height: 1.13; }
+    .contribute-panel p { max-width: 440px; color: #f3e4df; font-size: .94rem; }
+    .contribute-panel .button-secondary { margin-top: 8px; border-color: rgba(255,255,255,.42); color: white; }
+    .contribute-panel .button-secondary:hover { background: white; color: var(--rose-dark); }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 22px; }
+    .step { padding: 17px; border: 1px solid var(--line); border-radius: 14px; background: var(--paper); }
+    .step strong { display: block; margin-bottom: 5px; color: var(--rose-dark); font-family: var(--serif); font-size: 1.05rem; font-weight: 500; }
+    .step span { color: var(--muted); font-size: .84rem; }
+
+    .contact-layout { display: grid; grid-template-columns: .9fr 1.1fr; align-items: stretch; gap: 28px; }
+    .contact-copy { padding: 18px 0; }
+    .contact-copy .section-title { max-width: 430px; margin-bottom: 16px; }
+    .contact-copy > p { max-width: 490px; color: var(--muted); }
+    .contact-card { padding: 34px; border: 1px solid var(--line); border-radius: 22px; background: var(--paper); box-shadow: var(--shadow); }
+    .contact-card h3 { margin: 0 0 12px; font-family: var(--serif); font-size: 1.55rem; font-weight: 500; }
+    .contact-card > p { color: var(--muted); }
+    .contact-person { display: flex; align-items: center; gap: 14px; margin: 23px 0; padding: 16px; border-radius: 14px; background: var(--peach-light); }
+    .contact-avatar { display: grid; width: 48px; height: 48px; flex: 0 0 auto; place-items: center; border-radius: 50%; background: var(--peach); color: var(--rose-dark); font-family: var(--serif); font-size: 1.3rem; }
+    .contact-person strong, .contact-person span { display: block; }
+    .contact-person strong { font-size: .93rem; }
+    .contact-person span { color: var(--muted); font-size: .84rem; }
+    .contact-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+    .contact-footnote { margin: 17px 0 0; color: var(--muted); font-size: .8rem; }
+
+    .about-grid { display: grid; grid-template-columns: .75fr 1.25fr; gap: 25px; }
+    .profile-card { display: flex; min-height: 300px; flex-direction: column; justify-content: space-between; padding: 28px; border-radius: 20px; background: var(--peach); }
+    .profile-mark { display: grid; width: 74px; height: 74px; place-items: center; border: 1px solid rgba(118,57,68,.25); border-radius: 50%; color: var(--rose-dark); font-family: var(--serif); font-size: 2rem; }
+    .profile-card h3 { margin: 0 0 5px; font-family: var(--serif); font-size: 1.55rem; font-weight: 500; }
+    .profile-card p { margin: 0; color: #665756; font-size: .88rem; }
+    .about-copy { padding: 20px 0; }
+    .about-copy h2 { max-width: 580px; margin-bottom: 17px; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.12; }
+    .about-copy p { max-width: 650px; color: var(--muted); }
+    .mission { margin-top: 23px; padding: 18px 21px; border-radius: 14px; background: var(--paper); color: var(--rose-dark); font-family: var(--serif); font-size: 1.17rem; }
+
+    footer { padding: 28px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: .84rem; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+    footer p { margin: 0; }
+
+    @media (max-width: 760px) {
+      .wrap { width: min(100% - 34px, 600px); }
+      .nav { min-height: 72px; align-items: flex-start; flex-direction: column; gap: 10px; padding-top: 13px; padding-bottom: 13px; }
+      .brand img { width: 145px; }
+      .nav-links { width: 100%; justify-content: space-between; gap: 12px; overflow-x: auto; padding: 3px 0; }
+      .nav-links a { flex: 0 0 auto; font-size: .79rem; }
+      .nav-links .nav-cta { padding: 6px 12px; }
+      .hero { padding: 48px 0 58px; }
+      .hero-inner { grid-template-columns: 1fr; gap: 35px; }
+      h1 { font-size: clamp(2.8rem, 13vw, 4rem); }
+      .hero-art { min-height: 300px; margin-right: 10px; }
+      .hero-art::before { width: 260px; height: 260px; }
+      .hero-art::after { width: 210px; height: 210px; }
+      .sun { top: 28px; right: 45px; }
+      .flower { font-size: 6rem; }
+      .hero-note { right: -10px; bottom: 16px; max-width: 185px; padding: 13px 16px; font-size: .98rem; }
+      .section { padding: 58px 0; }
+      .section-head { align-items: flex-start; flex-direction: column; gap: 12px; }
+      .dashboard-grid, .article-layout, .contact-layout, .about-grid { grid-template-columns: 1fr; }
+      .panel { min-height: 0; padding: 23px; }
+      .dashboard-aside { gap: 22px; }
+      .guide-grid { grid-template-columns: 1fr; }
+      .guide-card { padding: 21px; }
+      .guide-number { margin-bottom: 13px; }
+      .steps { grid-template-columns: 1fr; }
+      .contact-card { padding: 24px; }
+      .profile-card { min-height: 230px; }
+      .footer-inner { align-items: flex-start; flex-direction: column; }
     }
-
-    .tile h3 { margin-top: 0; color: var(--rose); }
-    .tile p { color: var(--muted); }
-
-    .note {
-      margin-top: 22px;
-      padding: 18px 20px;
-      border-left: 4px solid var(--rose);
-      background: #f8eee8;
-      color: var(--muted);
-      border-radius: 8px;
-    }
-
-    footer {
-      margin-top: 35px;
-      padding: 28px 22px;
-      background: #f2e5dc;
-      text-align: center;
-      color: var(--muted);
-    }
-
-    @media (max-width: 700px) {
-      .hero { grid-template-columns: 1fr; margin-top: 5px; }
-      .hero-card { min-height: 230px; }
-      .grid { grid-template-columns: 1fr; }
-      .nav-links { gap: 8px; font-size: .8rem; }
-      .nav-links a { font-size: .8rem; }
-      .brand img { width: 130px; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
     }
   </style>
 </head>
 <body>
-  <nav>
-    <a class="brand" href="#" aria-label="PARAANTA"><img src="assets/paraanta-logo.png" alt="PARAANTA — Parenting and Healthy Pregnancy Talks"></a>
-    <div class="nav-links">
-      <a href="#panduan">Panduan</a>
-      <a href="#perlengkapan">Perlengkapan</a>
-      <a href="#tentang">Tentang</a>
-    </div>
-  </nav>
+  <header class="site-header">
+    <nav class="nav wrap" aria-label="Navigasi utama">
+      <a class="brand" href="#dashboard" aria-label="PARAANTA, ke dashboard">
+        <img src="assets/paraanta-logo.png" alt="PARAANTA — Parenting and Healthy Pregnancy Talks">
+      </a>
+      <div class="nav-links">
+        <a href="#dashboard">Dashboard</a>
+        <a href="#artikel">Artikel</a>
+        <a href="#panduan">Panduan</a>
+        <a href="#tentang">Tentang</a>
+        <a class="nav-cta" href="#aduan">Aduan &amp; konsultasi</a>
+      </div>
+    </nav>
+  </header>
 
   <main>
-    <header class="hero">
-      <div>
-        <div class="eyebrow">Teman perjalanan kehamilan</div>
-        <h1>Ruang hangat untuk menemani langkahmu.</h1>
-        <p class="intro">
-          PARAANTA menghadirkan panduan dan inspirasi praktis bagi calon ibu
-          selama menjalani perjalanan kehamilan.
-        </p>
-        <a class="button" href="#panduan">Jelajahi panduan</a>
-      </div>
-      <div class="hero-card">
-        <div class="symbol">♡</div>
-        <p>Satu langkah kecil, satu hari pada satu waktu.</p>
-      </div>
-    </header>
-
-    <section id="panduan">
-      <div class="eyebrow">Mulai di sini</div>
-      <h2>Panduan kehamilan</h2>
-      <p class="section-intro">
-        PARAANTA — Parenting and Healthy Pregnancy Talks — adalah ruang informasi
-  dan obrolan tentang kehamilan, persiapan menjadi orang tua, dan pengasuhan
-  awal. Kami ingin menyajikan panduan yang mudah dipahami, merujuk pada sumber
-  tepercaya.
-      </p>
-      <div class="grid">
-        <article class="tile">
-          <h3>Trimester pertama</h3>
-          <p>Catatan dan panduan untuk memulai perjalanan kehamilan.</p>
-        </article>
-        <article class="tile">
-          <h3>Trimester kedua</h3>
-          <p>Persiapan dan hal-hal yang bisa dibicarakan saat kontrol.</p>
-        </article>
-        <article class="tile">
-          <h3>Trimester ketiga</h3>
-          <p>Checklist untuk menyambut persalinan dan anggota keluarga baru.</p>
-        </article>
-      </div>
-      <div class="note">
-        Informasi di PARAANTA bersifat edukatif dan tidak menggantikan
-        pemeriksaan atau saran dari dokter dan bidan.
+    <section class="hero" id="dashboard" aria-labelledby="hero-title">
+      <div class="hero-inner wrap">
+        <div>
+          <p class="eyebrow">Parenting and Healthy Pregnancy Talks</p>
+          <h1 id="hero-title">Ruang hangat untuk cerita <em>dan bertumbuh.</em></h1>
+          <p class="hero-copy">Temukan artikel, panduan, dan ruang konsultasi seputar kehamilan serta persiapan menjadi orang tua — dalam suasana yang ramah dan mudah dipahami.</p>
+          <div class="hero-actions">
+            <a class="button" href="#artikel">Jelajahi artikel <span aria-hidden="true">↗</span></a>
+            <a class="button button-secondary" href="#tentang">Kenali PARAANTA</a>
+          </div>
+        </div>
+        <div class="hero-art" aria-label="Ilustrasi bunga dengan pesan hangat" role="img">
+          <span class="sun" aria-hidden="true"></span>
+          <span class="flower" aria-hidden="true">✿</span>
+          <div class="hero-note"><span>Untuk setiap langkah</span>Satu hari, satu cerita, satu langkah kecil.</div>
+        </div>
       </div>
     </section>
 
-    <section id="perlengkapan">
-      <div class="eyebrow">Pilihan praktis</div>
-      <h2>Perlengkapan ibu</h2>
-      <p class="section-intro">
-        Bagian ini nantinya dapat berisi ulasan perlengkapan yang relevan,
-        dengan keterangan yang jelas jika ada tautan afiliasi.
-      </p>
-      <div class="grid">
-        <article class="tile"><h3>Pakaian nyaman</h3><p>Rekomendasi dan panduan memilih.</p></article>
-        <article class="tile"><h3>Jurnal kehamilan</h3><p>Ide untuk mencatat momen dan pertanyaan.</p></article>
-        <article class="tile"><h3>Persiapan harian</h3><p>Checklist barang untuk kebutuhan sehari-hari.</p></article>
+    <section class="section section-soft" aria-labelledby="latest-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow section-kicker">Ruang redaksi</p>
+            <h2 id="latest-title">Dashboard artikel</h2>
+          </div>
+          <p>Kumpulan tulisan terbaru dari pengelola PARAANTA dan kontributor yang telah memberi izin untuk menerbitkan karyanya.</p>
+        </div>
+        <div class="dashboard-grid">
+          <div class="panel">
+            <div class="panel-label">Artikel terbaru</div>
+            <div class="empty-articles">
+              <div class="book-icon" aria-hidden="true">✳</div>
+              <div>
+                <h3>Belum ada artikel terbit</h3>
+                <p>Tulisan baru dari pengelola dan kontributor berizin akan muncul di sini.</p>
+              </div>
+            </div>
+          </div>
+          <aside class="panel dashboard-aside">
+            <div>
+              <div class="panel-label">Punya cerita?</div>
+              <h3>Berbagi tulisan bersama PARAANTA.</h3>
+              <p>Kami menerima usulan artikel. Setiap tulisan dari kontributor hanya akan diterbitkan setelah mendapat izin penulis.</p>
+            </div>
+            <a class="text-link" href="#artikel">Lihat alur kontribusi <span aria-hidden="true">→</span></a>
+          </aside>
+        </div>
       </div>
     </section>
 
-    <section id="tentang">
-      <div class="eyebrow">Tentang kami</div>
-      <h2>Kenalan dengan PARAANTA</h2>
-      <p class="section-intro">
-        PARAANTA adalah situs panduan kehamilan yang ingin menyajikan informasi
-        dengan bahasa yang mudah dipahami, sumber yang dapat diperiksa, dan
-        transparansi tentang tautan atau konten berbayar.
-      </p>
+    <section class="section" id="artikel" aria-labelledby="article-title">
+      <div class="wrap">
+        <p class="eyebrow section-kicker">Menulis dan berbagi</p>
+        <h2 class="section-title" id="article-title">Artikel PARAANTA</h2>
+        <p class="section-intro">Artikel yang dikirimkan dapat ditinjau lebih dulu. Kami akan mencantumkan nama penulis dan meminta persetujuan sebelum tulisan kontributor ditayangkan.</p>
+        <div class="article-layout">
+          <div class="panel">
+            <div class="panel-label">Untuk kontributor</div>
+            <h3 style="font-family:var(--serif);font-size:1.65rem;font-weight:500;margin:0 0 10px">Bagaimana tulisan bisa dimuat?</h3>
+            <p style="color:var(--muted);margin-bottom:0">Ceritakan topik dan kirim naskah kepada pengelola. Tim PARAANTA akan meninjau isi, meminta persetujuan penerbitan, lalu mencantumkan kredit penulis sesuai kesepakatan.</p>
+            <div class="steps" aria-label="Alur penerbitan artikel">
+              <div class="step"><strong>01 · Usulkan</strong><span>Sampaikan topik atau naskah.</span></div>
+              <div class="step"><strong>02 · Tinjau</strong><span>Bahas isi dan kredit penulis.</span></div>
+              <div class="step"><strong>03 · Setujui</strong><span>Terbit setelah ada izin.</span></div>
+            </div>
+          </div>
+          <aside class="panel contribute-panel">
+            <div class="panel-label">Kontribusi tulisan</div>
+            <h3>Punya ide artikel untuk dibagikan?</h3>
+            <p>Hubungi pengelola untuk mengusulkan tulisan atau menanyakan proses penerbitan. Detail kontak akan ditambahkan di bagian aduan dan konsultasi.</p>
+            <a class="button button-secondary" href="#aduan">Lihat kontak pengelola <span aria-hidden="true">↗</span></a>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="panduan" aria-labelledby="guide-title">
+      <div class="wrap">
+        <p class="eyebrow section-kicker">Mulai di sini</p>
+        <h2 class="section-title" id="guide-title">Ruang informasi dan dukungan</h2>
+        <p class="section-intro">PARAANTA — Parenting and Healthy Pregnancy Talks — ingin menjadi ruang untuk berbagi informasi tentang kehamilan, persiapan menjadi orang tua, dan pengasuhan awal.</p>
+        <div class="guide-grid">
+          <article class="guide-card">
+            <span class="guide-number" aria-hidden="true">01</span>
+            <h3>Kehamilan</h3>
+            <p>Catatan untuk menemani perjalanan dan membantu menyiapkan pertanyaan saat berkonsultasi.</p>
+          </article>
+          <article class="guide-card">
+            <span class="guide-number" aria-hidden="true">02</span>
+            <h3>Persiapan orang tua</h3>
+            <p>Ide dan cerita seputar persiapan menyambut anggota keluarga baru.</p>
+          </article>
+          <article class="guide-card">
+            <span class="guide-number" aria-hidden="true">03</span>
+            <h3>Pengasuhan awal</h3>
+            <p>Ruang untuk belajar, bertanya, dan bertukar pengalaman dengan hangat.</p>
+          </article>
+        </div>
+        <div class="note">Informasi di PARAANTA bersifat edukatif dan tidak menggantikan pemeriksaan atau saran dari dokter dan bidan.</div>
+      </div>
+    </section>
+
+    <section class="section" id="aduan" aria-labelledby="contact-title">
+      <div class="wrap contact-layout">
+        <div class="contact-copy">
+          <p class="eyebrow section-kicker">Kami siap mendengar</p>
+          <h2 class="section-title" id="contact-title">Aduan, pertanyaan, atau ingin berkonsultasi?</h2>
+          <p>Sampaikan pertanyaan atau masukan kepada pengelola PARAANTA. Kami akan menambahkan kanal kontak yang dapat Anda gunakan setelah detail kontak person tersedia.</p>
+          <p>Mohon jangan mengirimkan nomor identitas, rekam medis, atau data pribadi yang tidak diperlukan. Untuk masalah kesehatan, hubungi dokter atau bidan Anda.</p>
+        </div>
+        <div class="contact-card">
+          <p class="eyebrow section-kicker">Kontak person aduan</p>
+          <h3>Hubungi pengelola PARAANTA</h3>
+          <p>Klik ikon WhatsApp untuk membuka percakapan, atau ikon email untuk menulis pesan di Gmail.</p>
+          <div class="contact-person">
+            <div class="contact-avatar" aria-hidden="true">P</div>
+            <div><strong>Sucitra Afrianty, A.Md.Keb.</strong><span>Kontak person aduan PARAANTA</span></div>
+          </div>
+          <div class="contact-actions" aria-label="Kanal kontak">
+            <a class="button button-whatsapp" href="https://wa.me/6282293644399" target="_blank" rel="noopener noreferrer" aria-label="Hubungi Sucitra Afrianty melalui WhatsApp" title="WhatsApp">
+              <svg viewBox="0 0 448 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M380.9 97.1C339 55.2 283.2 32 223.9 32 101.5 32 1.9 131.5 1.9 253.9c0 39.2 10.3 77.4 29.9 111.1L0 480l118.4-31.1c32.6 17.8 69.4 27.2 105.4 27.2h.1c122.4 0 222-99.6 222-222 0-59.3-23.1-115-65-157zm-157 341.6c-32.9 0-65.2-8.9-93.4-25.7l-6.7-4-70.2 18.4 18.7-68.4-4.3-7A184.8 184.8 0 0 1 39.4 254c0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1a184.1 184.1 0 0 1 54.1 130.5c0 101.8-82.8 184.6-184.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.7-3.2 3.7-6.5 4.2-12 1.4-32.8-16.4-54.3-29.3-76-66.5-5.7-9.8 5.7-9.1 16.4-30.4 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2s-9.7 1.4-14.8 6.9c-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.7 83.8 35.2 15.2 49 16.6 66.6 13.9 10.1-1.5 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.3-5-3.7-10.6-6.5z"/></svg>
+            </a>
+            <a class="button button-email" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=sucidewa13%40gmail.com" target="_blank" rel="noopener noreferrer" aria-label="Tulis email kepada sucidewa13@gmail.com di Gmail" title="Email melalui Gmail">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m4 7 8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+          <p class="contact-footnote">Pilih ikon yang sesuai untuk mulai menghubungi kami. Mohon hindari mengirimkan data medis atau identitas yang tidak diperlukan.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="tentang" aria-labelledby="about-title">
+      <div class="wrap about-grid">
+        <div class="profile-card">
+          <div class="profile-mark" aria-hidden="true">P</div>
+          <div>
+            <h3>Sucitra Afrianty, A.Md.Keb.</h3>
+            <p>Pengelola PARAANTA</p>
+          </div>
+        </div>
+        <div class="about-copy">
+          <p class="eyebrow section-kicker">Tentang kami</p>
+          <h2 id="about-title">Sebuah ruang yang dibuat dengan kepedulian.</h2>
+          <p>PARAANTA dibuat untuk menemani calon ibu dan keluarga melalui informasi yang mudah dipahami, cerita yang saling menguatkan, serta ruang untuk bertanya dan berbagi.</p>
+          <p>Ruang ini dikelola oleh Sucitra Afrianty, A.Md.Keb. PARAANTA dibuat sebagai ruang informasi yang ramah dan mudah dipahami, sekaligus tempat untuk bertanya dan berbagi cerita tentang kehamilan serta persiapan menjadi orang tua.</p>
+          <div class="mission">“Membuat perjalanan kehamilan dan menjadi orang tua terasa lebih didampingi.”</div>
+        </div>
+      </div>
     </section>
   </main>
 
   <footer>
-    <p>© 2026 PARAANTA · Kebijakan Privasi · Keterangan Afiliasi</p>
+    <div class="wrap footer-inner">
+      <p>© 2026 PARAANTA · Parenting and Healthy Pregnancy Talks</p>
+      <p>Informasi edukatif, bukan pengganti saran tenaga kesehatan.</p>
+    </div>
   </footer>
 </body>
 </html>
