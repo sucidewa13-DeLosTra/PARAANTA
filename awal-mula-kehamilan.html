@@ -52,9 +52,16 @@
     .article-body h3 { margin: 0 0 7px; color: var(--rose-dark); font-size: 1.28rem; }
     .article-body ul { margin: 0 0 19px; padding-left: 1.35rem; }
     .article-body li { margin-bottom: 8px; padding-left: 3px; }
+    .article-figure { margin: 25px 0 32px; padding: 12px; overflow: hidden; border: 1px solid var(--line); border-radius: 18px; background: var(--paper); }
+    .article-figure img { display: block; width: 100%; height: auto; border-radius: 10px; }
+    .article-figure figcaption { margin: 9px 3px 0; color: var(--muted); font-size: .82rem; }
     .note { margin: 22px 0; padding: 17px 20px; border-left: 3px solid var(--sage); border-radius: 0 10px 10px 0; background: #edf0e9; color: #586353; }
     .trimester-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 13px; margin: 20px 0; }
     .trimester { padding: 20px; border: 1px solid var(--line); border-radius: 16px; background: var(--paper); }
+    .trimester-figure { margin: 0 0 16px; }
+    .trimester-figure img { display: block; width: 100%; height: auto; border-radius: 10px; }
+    .trimester-figure figcaption { margin-top: 7px; color: var(--muted); font-size: .78rem; line-height: 1.4; }
+    .illustration-source { margin: -5px 0 20px; color: var(--muted); font-size: .82rem; }
     .trimester span { display: block; margin-bottom: 7px; color: var(--rose); font-size: .75rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
     .trimester p { margin: 0; color: var(--muted); font-size: .93rem; }
     .warning { margin: 22px 0; padding: 23px 25px; border: 1px solid #e9c4ba; border-radius: 16px; background: #fff0e9; }
@@ -122,6 +129,10 @@
         <h2>Bagaimana kehamilan dimulai?</h2>
         <p>Pembuahan terjadi saat sel sperma bertemu dengan sel telur, umumnya di saluran tuba. Sel yang terbentuk kemudian membelah sambil bergerak menuju rahim. Jika kumpulan sel tersebut menempel pada lapisan rahim, proses ini disebut implantasi dan perkembangan berlanjut.</p>
         <p>Plasenta berkembang selama kehamilan. Organ ini membantu pertukaran oksigen dan zat gizi dari ibu kepada janin, serta membantu membawa kembali zat sisa untuk dikeluarkan.</p>
+        <figure class="article-figure">
+          <img src="assets/ilustrasi-proses-kehamilan.jpg" alt="Diagram urutan sel telur, pembuahan, pembelahan sel, hingga embrio awal" width="1200" height="480" decoding="async">
+          <figcaption>Ilustrasi proses awal kehamilan dari panduan PDF yang diberikan untuk artikel ini.</figcaption>
+        </figure>
 
         <h2>Bagaimana usia kehamilan dihitung?</h2>
         <p>Usia kehamilan biasanya dihitung sejak hari pertama menstruasi terakhir, bukan sejak hari pembuahan. Karena itu, hitungan usia kehamilan dapat sekitar dua minggu lebih panjang daripada waktu sejak pembuahan. Bidan atau dokter dapat membantu memperkirakan usia kehamilan dan hari perkiraan lahir berdasarkan riwayat menstruasi serta pemeriksaan yang diperlukan.</p>
@@ -131,21 +142,34 @@
         <p>Trimester membagi masa kehamilan menjadi tiga tahap. Batas minggu berikut adalah pembagian umum; perkembangan dan pengalaman setiap ibu dapat berbeda.</p>
         <div class="trimester-grid">
           <section class="trimester" aria-labelledby="trimester-one">
+            <figure class="trimester-figure">
+              <img src="assets/ilustrasi-trimester-1.jpg" alt="Ilustrasi perkembangan janin pada trimester pertama" width="700" height="760" loading="lazy" decoding="async">
+              <figcaption>Ilustrasi trimester pertama</figcaption>
+            </figure>
             <span>Trimester 1 · sampai 13 minggu 6 hari</span>
             <h3 id="trimester-one">Awal pembentukan</h3>
             <p>Pembuahan dan perkembangan awal berlangsung, termasuk pembentukan dasar organ. Sebagian ibu dapat mengalami mual, mudah lelah, atau lebih sering buang air kecil.</p>
           </section>
           <section class="trimester" aria-labelledby="trimester-two">
+            <figure class="trimester-figure">
+              <img src="assets/ilustrasi-trimester-2.jpg" alt="Ilustrasi bayi tumbuh dan bergerak pada trimester kedua" width="700" height="760" loading="lazy" decoding="async">
+              <figcaption>Ilustrasi trimester kedua</figcaption>
+            </figure>
             <span>Trimester 2 · 14 sampai 27 minggu 6 hari</span>
             <h3 id="trimester-two">Pertumbuhan berlanjut</h3>
             <p>Janin bertumbuh dan bergerak. Waktu pertama kali ibu merasakan gerakan dapat berbeda-beda.</p>
           </section>
           <section class="trimester" aria-labelledby="trimester-three">
+            <figure class="trimester-figure">
+              <img src="assets/ilustrasi-trimester-3.jpg" alt="Ilustrasi perkembangan bayi menjelang persalinan pada trimester ketiga" width="700" height="760" loading="lazy" decoding="async">
+              <figcaption>Ilustrasi trimester ketiga</figcaption>
+            </figure>
             <span>Trimester 3 · mulai 28 minggu</span>
             <h3 id="trimester-three">Menjelang persalinan</h3>
             <p>Berat janin bertambah dan organ terus matang. Keluarga dapat mulai membicarakan tempat bersalin, pendamping, transportasi, dan rencana rujukan bersama tenaga kesehatan.</p>
           </section>
         </div>
+        <p class="illustration-source">Seluruh ilustrasi pada bagian ini diambil dari <em>Panduan Kehamilan Sehat</em> yang menjadi bahan penyusunan artikel.</p>
 
         <h2>Langkah awal yang dapat dilakukan</h2>
         <ul>
