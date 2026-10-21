@@ -52,6 +52,13 @@
     .article-body h3 { margin: 0 0 7px; color: var(--rose-dark); font-size: 1.28rem; }
     .article-body ul { margin: 0 0 19px; padding-left: 1.35rem; }
     .article-body li { margin-bottom: 8px; padding-left: 3px; }
+    .warning-signs { display: grid; gap: 14px; margin: 20px 0 30px; }
+    .warning-item { display: grid; grid-template-columns: minmax(0,1fr) minmax(180px,240px); grid-template-rows: auto 1fr; align-items: center; gap: 10px 24px; padding: 21px; border: 1px solid var(--line); border-radius: 17px; background: var(--paper); }
+    .warning-item h3 { grid-column: 1; margin: 0; }
+    .warning-item figure { grid-column: 2; grid-row: 1 / span 2; width: 100%; margin: 0; padding: 9px; border: 1px solid var(--line); border-radius: 14px; background: #fff; }
+    .warning-item figure img { display: block; width: 100%; aspect-ratio: 1; object-fit: contain; border-radius: 9px; }
+    .warning-item figcaption { margin-top: 6px; color: var(--muted); font-size: .76rem; line-height: 1.35; text-align: center; }
+    .warning-item p { grid-column: 1; margin: 0; }
     .note { margin: 22px 0; padding: 17px 20px; border-left: 3px solid var(--sage); border-radius: 0 10px 10px 0; background: #edf0e9; color: #586353; }
     .trimester-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 13px; margin: 20px 0; }
     .trimester { padding: 20px; border: 1px solid var(--line); border-radius: 16px; background: var(--paper); }
@@ -80,6 +87,9 @@
       .trimester-grid { grid-template-columns: 1fr; }
       .trimester { padding: 17px; }
       .warning, .sources { padding: 19px; }
+      .warning-item { grid-template-columns: 1fr; gap: 12px; padding: 17px; }
+      .warning-item h3, .warning-item p { grid-column: 1; }
+      .warning-item figure { grid-column: 1; grid-row: auto; width: min(100%, 300px); margin-inline: auto; }
       .footer-inner { align-items: flex-start; flex-direction: column; }
     }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
@@ -112,59 +122,110 @@
         <h1>Tanda Bahaya Kehamilan: Kapan Harus Segera Diperiksa?</h1>
         <p class="dek">Gejala tertentu saat hamil perlu segera dinilai tenaga kesehatan. Kenali tandanya dan langkah aman yang bisa dilakukan keluarga.</p>
         <div class="article-meta">
-          <span>Penulis: Redaksi PARAANTA</span>
+          <span>Penulis: Sucitra Afrianty, A.Md.Keb.</span>
           <time datetime="2026-10-18">18 Oktober 2026</time>
           <span>Waktu baca sekitar 5 menit</span>
         </div>
       </header>
 
       <div class="article-body">
-<p>Selama hamil, beberapa perubahan tubuh memang umum terjadi. Namun ada gejala tertentu yang perlu segera dinilai tenaga kesehatan. Mengenali tanda bahaya membantu ibu dan keluarga mencari pertolongan tepat waktu—bukan untuk mendiagnosis sendiri.</p>
+        <p>Ibu hamil sering mengalami keluhan seperti mual, muntah, pusing, dan mudah lelah. Sebagian keluhan merupakan hal yang biasa terjadi selama kehamilan. Namun, ada juga keluhan yang bisa menjadi tanda bahaya dan perlu segera diperiksakan ke tenaga kesehatan.</p>
 
-<h2>Segera cari pertolongan bila mengalami gejala berikut</h2>
-<ul>
-  <li><strong>Perdarahan dari jalan lahir.</strong> Perdarahan saat hamil perlu diperiksa, terutama bila banyak, disertai nyeri, lemas, atau pusing.</li>
-  <li><strong>Nyeri perut hebat atau menetap.</strong> Jangan menunggu gejala membaik sendiri jika rasa sakit berat atau semakin kuat.</li>
-  <li><strong>Sakit kepala berat, pandangan kabur, atau bengkak mendadak pada wajah dan tangan.</strong> Terlebih jika disertai nyeri ulu hati atau badan terasa sangat tidak sehat, segera hubungi tenaga kesehatan.</li>
-  <li><strong>Demam tinggi, muntah terus-menerus, atau sulit minum.</strong> Kondisi ini dapat membuat ibu kekurangan cairan atau memerlukan pemeriksaan penyebabnya.</li>
-  <li><strong>Air atau cairan keluar dari vagina sebelum waktu persalinan.</strong> Hubungi fasilitas kesehatan untuk mendapat penilaian.</li>
-  <li><strong>Gerak bayi berkurang atau berubah dari pola biasanya</strong> setelah ibu mulai rutin merasakan gerakan. Segera hubungi bidan atau dokter untuk arahan; jangan menunda hanya untuk menunggu gerakan kembali.</li>
-  <li><strong>Kejang, sesak napas berat, pingsan, atau perdarahan banyak.</strong> Ini keadaan darurat—minta bantuan dan segera menuju layanan kesehatan.</li>
-</ul>
+        <h2>Keluhan yang harus diwaspadai</h2>
+        <div class="warning-signs">
+          <section class="warning-item" aria-labelledby="warning-sign-1">
+            <h3 id="warning-sign-1">1. Nyeri perut hebat</h3>
+            <figure>
+              <img src="assets/tanda-bahaya-kehamilan/nyeri-perut-hebat.jpg" alt="Ilustrasi ibu hamil yang mengalami nyeri perut hebat." width="377" height="377" loading="lazy" decoding="async">
+              <figcaption>Ilustrasi nyeri perut hebat</figcaption>
+            </figure>
+            <p>Nyeri perut yang sangat kuat, terus-menerus, atau disertai kram berat, terutama jika disertai perdarahan.</p>
+          </section>
+          <section class="warning-item" aria-labelledby="warning-sign-2">
+            <h3 id="warning-sign-2">2. Keluar darah dari jalan lahir</h3>
+            <figure>
+              <img src="assets/tanda-bahaya-kehamilan/perdarahan.jpg" alt="Ilustrasi perdarahan dari jalan lahir saat hamil." width="351" height="351" loading="lazy" decoding="async">
+              <figcaption>Ilustrasi keluar darah dari jalan lahir</figcaption>
+            </figure>
+            <p>Perdarahan saat hamil, baik sedikit maupun banyak, perlu segera dinilai oleh tenaga kesehatan.</p>
+          </section>
+          <section class="warning-item" aria-labelledby="warning-sign-3">
+            <h3 id="warning-sign-3">3. Sakit kepala hebat atau pandangan kabur</h3>
+            <figure>
+              <img src="assets/tanda-bahaya-kehamilan/sakit-kepala-pandangan-kabur.jpg" alt="Ilustrasi ibu hamil mengalami sakit kepala hebat." width="341" height="341" loading="lazy" decoding="async">
+              <figcaption>Ilustrasi sakit kepala hebat atau pandangan kabur</figcaption>
+            </figure>
+            <p>Terutama jika disertai bengkak mendadak pada wajah atau tangan, nyeri ulu hati, atau sesak napas. Gejala tersebut dapat berkaitan dengan preeklamsia dan perlu segera dinilai tenaga kesehatan.</p>
+          </section>
+          <section class="warning-item" aria-labelledby="warning-sign-4">
+            <h3 id="warning-sign-4">4. Muntah terus-menerus</h3>
+            <figure>
+              <img src="assets/tanda-bahaya-kehamilan/muntah-terus-menerus.jpg" alt="Ilustrasi ibu hamil mengalami muntah terus-menerus." width="484" height="484" loading="lazy" decoding="async">
+              <figcaption>Ilustrasi muntah terus-menerus</figcaption>
+            </figure>
+            <p>Tidak bisa makan atau minum, urine sangat sedikit, atau tubuh terasa sangat lemas dapat menandakan kekurangan cairan.</p>
+          </section>
+          <section class="warning-item" aria-labelledby="warning-sign-5">
+            <h3 id="warning-sign-5">5. Sesak napas berat atau nyeri dada</h3>
+            <figure>
+              <img src="assets/tanda-bahaya-kehamilan/sesak-napas-berat.jpg" alt="Ilustrasi ibu hamil dengan sesak napas dan nyeri dada." width="347" height="347" loading="lazy" decoding="async">
+              <figcaption>Ilustrasi sesak napas berat atau nyeri dada</figcaption>
+            </figure>
+            <p>Terlebih jika terjadi mendadak, disertai pingsan, atau jantung berdebar hebat. Cari pertolongan medis segera.</p>
+          </section>
+          <section class="warning-item" aria-labelledby="warning-sign-6">
+            <h3 id="warning-sign-6">6. Keluar cairan dari jalan lahir</h3>
+            <figure>
+              <img src="assets/tanda-bahaya-kehamilan/cairan-jalan-lahir.jpg" alt="Ilustrasi cairan ketuban yang merembes sebelum persalinan." width="494" height="494" loading="lazy" decoding="async">
+              <figcaption>Ilustrasi keluar cairan dari jalan lahir</figcaption>
+            </figure>
+            <p>Cairan yang merembes atau mengalir seperti air ketuban, terutama sebelum waktunya melahirkan, harus segera diperiksa.</p>
+          </section>
+          <section class="warning-item" aria-labelledby="warning-sign-7">
+            <h3 id="warning-sign-7">7. Gerakan bayi berkurang</h3>
+            <figure>
+              <img src="assets/tanda-bahaya-kehamilan/gerakan-janin-berkurang.jpg" alt="Ilustrasi ibu hamil memperhatikan gerakan bayi yang berkurang." width="517" height="517" loading="lazy" decoding="async">
+              <figcaption>Ilustrasi gerakan bayi berkurang</figcaption>
+            </figure>
+            <p>Jika gerakan bayi sudah biasa dirasakan lalu menjadi jauh lebih sedikit atau tidak terasa, segera hubungi bidan atau rumah sakit. Jangan menunggu sampai besok.</p>
+          </section>
+          <section class="warning-item" aria-labelledby="warning-sign-8">
+            <h3 id="warning-sign-8">8. Demam tinggi atau kejang</h3>
+            <figure>
+              <img src="assets/tanda-bahaya-kehamilan/demam-tinggi-kejang.jpg" alt="Ilustrasi ibu hamil mengalami demam tinggi dan menggigil." width="453" height="453" loading="lazy" decoding="async">
+              <figcaption>Ilustrasi demam tinggi atau kejang</figcaption>
+            </figure>
+            <p>Demam tinggi, kejang, pingsan, atau kondisi tubuh yang memburuk merupakan tanda yang membutuhkan pertolongan segera.</p>
+          </section>
+        </div>
 
-<div class="warning" aria-labelledby="warning-title">
-  <h2 id="warning-title">Apa yang harus dilakukan?</h2>
-  <p>Hubungi bidan atau dokter, atau pergi ke Puskesmas/rumah sakit terdekat. Jika gejalanya berat atau memburuk, cari pertolongan darurat sekarang. Bila memungkinkan, minta orang tepercaya menemani dan bawa Buku KIA serta daftar obat yang sedang digunakan.</p>
-  <p>Jangan menunda pertolongan untuk menunggu jawaban di media sosial, dan jangan mencoba mengobati sendiri dengan obat atau jamu tanpa arahan tenaga kesehatan.</p>
-</div>
+        <h2>Keluhan yang biasa terjadi dan perlu dibedakan</h2>
+        <p>Tidak semua keluhan berarti kehamilan berbahaya. Mual ringan, mudah lelah, dan lebih sering buang air kecil dapat terjadi selama kehamilan. Namun, jika keluhan terasa berat, semakin parah, atau berbeda dari biasanya, ibu perlu memeriksakan diri.</p>
 
-<h2>Kenali keadaan ibu, bukan hanya satu gejala</h2>
-<p>Tanda bahaya dapat muncul dengan cara berbeda. Satu gejala saja cukup menjadi alasan untuk meminta saran jika terasa berat, baru muncul, atau membuat Anda khawatir. Tenaga kesehatan akan menilai kondisi berdasarkan usia kehamilan, riwayat, dan pemeriksaan—informasi internet tidak dapat menggantikannya.</p>
-<p>Simpan nomor fasilitas kesehatan dan rencanakan transportasi sebelum persalinan. Pasangan atau keluarga dapat membantu mengenali perubahan, menemani pemeriksaan, dan membawa ibu mencari pertolongan bila dibutuhkan.</p>
+        <section class="warning" aria-labelledby="warning-title">
+          <h2 id="warning-title">Apa yang harus dilakukan ibu hamil?</h2>
+          <ul>
+            <li>Segera ke IGD rumah sakit jika mengalami perdarahan, nyeri perut hebat, kejang, sesak napas berat, pingsan, atau sakit kepala hebat disertai gangguan penglihatan.</li>
+            <li>Segera hubungi bidan atau dokter jika gerakan bayi berkurang, air ketuban merembes, demam, atau muntah terus-menerus.</li>
+            <li>Jangan menunggu jadwal pemeriksaan kehamilan berikutnya jika muncul tanda bahaya.</li>
+            <li>Lakukan pemeriksaan kehamilan secara rutin meskipun tidak ada keluhan.</li>
+          </ul>
+        </section>
 
-<h2>Jangan abaikan perubahan gerak bayi</h2>
-<p>Setelah gerakan bayi mulai terasa, ibu akan mengenali pola gerak yang biasanya terjadi. Jika terasa jauh berkurang atau berbeda, segera hubungi tenaga kesehatan untuk mendapat arahan. Tidak perlu menunggu sampai kunjungan rutin berikutnya.</p>
+        <p>Panduan ini sejalan dengan informasi Kementerian Kesehatan RI dan WHO. Informasi umum tidak dapat memastikan penyebab keluhan atau menggantikan penilaian tenaga kesehatan.</p>
+        <p><strong>Pesan penting untuk ibu hamil:</strong> Jangan takut untuk memeriksakan diri. Lebih baik segera diperiksa daripada terlambat mendapatkan pertolongan. Menjaga kesehatan ibu berarti ikut menjaga keselamatan bayi.</p>
 
-<h2>Persiapan sederhana membuat pertolongan lebih cepat</h2>
-<ul>
-  <li>Simpan Buku KIA dan dokumen pemeriksaan di tempat yang mudah dijangkau.</li>
-  <li>Sepakati siapa yang bisa menemani dan kendaraan apa yang digunakan.</li>
-  <li>Catat kapan gejala mulai muncul dan perubahan yang dirasakan, tetapi jangan biarkan pencatatan menunda keberangkatan.</li>
-  <li>Ikuti instruksi tenaga kesehatan dan sampaikan bila ibu memiliki alergi atau sedang menggunakan obat tertentu.</li>
-</ul>
+        <aside class="sources" aria-labelledby="sources-title">
+          <h2 id="sources-title">Sumber untuk dibaca lebih lanjut</h2>
+          <ol>
+            <li><a href="https://ayosehat.kemkes.go.id/tanda-bahaya-kehamilan-yang-harus-diketahui-oleh-ibu-hamil" target="_blank" rel="noopener noreferrer">Kementerian Kesehatan RI — Tanda Bahaya Kehamilan yang Harus Diketahui oleh Ibu Hamil</a></li>
+            <li><a href="https://keslan.kemkes.go.id/view_artikel/3646/hipertensi-dalam-kehamilan" target="_blank" rel="noopener noreferrer">Kementerian Kesehatan RI — Hipertensi dalam Kehamilan</a></li>
+            <li><a href="https://www.who.int/news-room/fact-sheets/detail/pre-eclampsia" target="_blank" rel="noopener noreferrer">World Health Organization — Pre-eclampsia</a></li>
+            <li><a href="https://www.who.int/tools/your-life-your-health/life-phase/pregnancy--birth-and-after-childbirth/keeping-well-during-pregnancy-and-after-childbirth" target="_blank" rel="noopener noreferrer">World Health Organization — Keeping well during pregnancy and after childbirth</a></li>
+          </ol>
+        </aside>
 
-<p>Jika Anda sedang mengalami salah satu gejala berat di atas, hentikan membaca dan segera cari bantuan medis.</p>
-
-<aside class="sources" aria-labelledby="sources-title">
-  <h2 id="sources-title">Sumber untuk dibaca lebih lanjut</h2>
-  <ol>
-    <li><a href="https://ayosehat.kemkes.go.id/tanda-bahaya-kehamilan-yang-harus-diketahui-oleh-ibu-hamil" target="_blank" rel="noopener noreferrer">Kementerian Kesehatan RI — Tanda Bahaya Kehamilan yang Harus Diketahui oleh Ibu Hamil</a></li>
-    <li><a href="https://ayosehat.kemkes.go.id/flyer-kenali-tanda-bahaya-pada-kehamilan" target="_blank" rel="noopener noreferrer">Kementerian Kesehatan RI — Kenali Tanda Bahaya pada Kehamilan</a></li>
-    <li><a href="https://www.who.int/tools/your-life-your-health/life-phase/pregnancy--birth-and-after-childbirth/keeping-well-during-pregnancy-and-after-childbirth" target="_blank" rel="noopener noreferrer">World Health Organization — Keeping well during pregnancy and after childbirth</a></li>
-  </ol>
-</aside>
-
-<p class="article-end"><strong>Catatan kesehatan:</strong> Informasi ini bersifat edukatif dan tidak dapat menentukan penyebab gejala. Untuk keadaan darurat atau keluhan yang mengkhawatirkan, segera hubungi tenaga kesehatan atau fasilitas kesehatan terdekat.</p>
+        <p class="article-end"><strong>Catatan kesehatan:</strong> Artikel ini bersifat edukatif dan tidak dapat menentukan penyebab gejala. Untuk keadaan darurat atau keluhan yang mengkhawatirkan, segera hubungi tenaga kesehatan atau fasilitas kesehatan terdekat.</p>
       </div>
     </article>
   </main>
