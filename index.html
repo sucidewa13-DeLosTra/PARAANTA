@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="PARAANTA adalah ruang informasi, cerita, dan konsultasi seputar kehamilan serta persiapan menjadi orang tua.">
+  <meta name="description" content="Temukan panduan kehamilan, persiapan pemeriksaan, dan informasi tanda bahaya yang mudah dipahami di PARAANTA.">
   <link rel="canonical" href="https://paraanta.com/">
   <meta name="theme-color" content="#fff9f5">
-  <title>PARAANTA — Ruang Cerita dan Informasi</title>
+  <title>PARAANTA — Panduan Kehamilan dan Persiapan Menjadi Orang Tua</title>
   <style>
     :root {
       color-scheme: light;
@@ -214,10 +214,13 @@
     .text-link:hover { text-decoration: underline; text-underline-offset: 4px; }
 
     .guide-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 30px; }
-    .guide-card { padding: 25px; border: 1px solid var(--line); border-radius: 18px; background: var(--paper); }
+    .guide-card { display: flex; flex-direction: column; align-items: flex-start; padding: 25px; border: 1px solid var(--line); border-radius: 18px; background: var(--paper); }
     .guide-number { display: inline-grid; width: 38px; height: 38px; margin-bottom: 20px; place-items: center; border-radius: 50%; background: var(--peach-light); color: var(--rose); font-family: var(--serif); }
     .guide-card h3 { margin-bottom: 8px; color: var(--rose-dark); font-family: var(--serif); font-size: 1.35rem; font-weight: 500; }
+    .guide-card h3 a { color: inherit; text-decoration: none; }
+    .guide-card h3 a:hover { text-decoration: underline; text-underline-offset: 4px; }
     .guide-card p { margin-bottom: 0; color: var(--muted); font-size: .93rem; }
+    .guide-card .text-link { margin-top: 18px; }
     .note { margin-top: 24px; padding: 17px 20px; border-left: 3px solid var(--sage); border-radius: 0 10px 10px 0; background: #edf0e9; color: #586353; font-size: .9rem; }
 
     .article-layout { display: grid; grid-template-columns: 1fr .8fr; gap: 20px; }
@@ -377,15 +380,15 @@
 <body>
   <header class="site-header">
     <nav class="nav wrap" aria-label="Navigasi utama">
-      <a class="brand" href="#dashboard" aria-label="PARAANTA, ke dashboard">
+      <a class="brand" href="index.html#dashboard" aria-label="PARAANTA, beranda">
         <img src="assets/paraanta-logo.png" alt="PARAANTA — Parenting and Healthy Pregnancy Talks">
       </a>
       <div class="nav-links">
-        <a href="#dashboard">Dashboard</a>
-        <a href="#artikel">Artikel</a>
-        <a href="#panduan">Panduan</a>
+        <a href="panduan-kehamilan.html">Panduan Kehamilan</a>
+        <a href="artikel.html">Artikel</a>
         <a href="#tentang">Tentang</a>
-        <a class="nav-cta" href="#aduan">Aduan &amp; konsultasi</a>
+        <a href="#aduan">Kontak</a>
+        <a class="nav-cta" href="panduan-kehamilan.html">Mulai dari panduan</a>
       </div>
     </nav>
   </header>
@@ -394,12 +397,12 @@
     <section class="hero" id="dashboard" aria-labelledby="hero-title">
       <div class="hero-inner wrap">
         <div>
-          <p class="eyebrow">Parenting and Healthy Pregnancy Talks</p>
-          <h1 id="hero-title">Ruang hangat untuk cerita <em>dan bertumbuh.</em></h1>
-          <p class="hero-copy">Temukan artikel, panduan, dan ruang konsultasi seputar kehamilan serta persiapan menjadi orang tua — dalam suasana yang ramah dan mudah dipahami.</p>
+          <p class="eyebrow">Panduan kehamilan &amp; parenting</p>
+          <h1 id="hero-title">Panduan kehamilan yang <em>mudah dipahami.</em></h1>
+          <p class="hero-copy">Temukan artikel dan panduan untuk menemani perjalanan kehamilan, persiapan menjadi orang tua, serta menyiapkan pertanyaan untuk dibahas bersama bidan atau dokter.</p>
           <div class="hero-actions">
-            <a class="button" href="#artikel">Jelajahi artikel <span aria-hidden="true">↗</span></a>
-            <a class="button button-secondary" href="#tentang">Kenali PARAANTA</a>
+            <a class="button" href="panduan-kehamilan.html">Jelajahi panduan <span aria-hidden="true">↗</span></a>
+            <a class="button button-secondary" href="artikel.html">Baca artikel terbaru</a>
           </div>
         </div>
         <div class="hero-art" aria-label="Ilustrasi bunga dengan pesan hangat" role="img">
@@ -410,14 +413,15 @@
       </div>
     </section>
 
-    <section class="section section-soft" id="dashboard-artikel" aria-labelledby="latest-title">
-      <div class="wrap">
+    <section class="section section-soft" id="artikel" aria-labelledby="latest-title">
+      <div class="wrap" id="dashboard-artikel">
         <div class="section-head">
           <div>
             <p class="eyebrow section-kicker">Ruang redaksi</p>
             <h2 id="latest-title">Artikel terbaru</h2>
           </div>
           <p>Kumpulan tulisan terbaru dari pengelola PARAANTA dan kontributor yang telah memberi izin untuk menerbitkan karyanya.</p>
+          <a class="text-link" href="artikel.html">Lihat semua artikel <span aria-hidden="true">→</span></a>
         </div>
         <div class="dashboard-grid">
           <div class="panel">
@@ -456,17 +460,17 @@
               <h3>Berbagi tulisan bersama PARAANTA.</h3>
               <p>Kami menerima usulan artikel. Setiap tulisan dari kontributor hanya akan diterbitkan setelah mendapat izin penulis.</p>
             </div>
-            <a class="text-link" href="#artikel">Lihat alur kontribusi <span aria-hidden="true">→</span></a>
+            <a class="text-link" href="#kontributor">Lihat alur kontribusi <span aria-hidden="true">→</span></a>
           </aside>
         </div>
       </div>
     </section>
 
-    <section class="section" id="artikel" aria-labelledby="article-title">
+    <section class="section" id="kontributor" aria-labelledby="contribute-title">
       <div class="wrap">
         <p class="eyebrow section-kicker">Menulis dan berbagi</p>
-        <h2 class="section-title" id="article-title">Artikel PARAANTA</h2>
-        <p class="section-intro">Artikel yang dikirimkan dapat ditinjau lebih dulu. Kami akan mencantumkan nama penulis dan meminta persetujuan sebelum tulisan kontributor ditayangkan.</p>
+        <h2 class="section-title" id="contribute-title">Kirim tulisan ke PARAANTA</h2>
+        <p class="section-intro">Punya ide atau naskah yang ingin dibagikan? Tulisan kontributor ditinjau lebih dulu dan hanya diterbitkan setelah ada persetujuan penulis.</p>
         <div class="article-layout">
           <div class="panel">
             <div class="panel-label">Untuk kontributor</div>
@@ -491,23 +495,26 @@
     <section class="section section-soft" id="panduan" aria-labelledby="guide-title">
       <div class="wrap">
         <p class="eyebrow section-kicker">Mulai di sini</p>
-        <h2 class="section-title" id="guide-title">Ruang informasi dan dukungan</h2>
-        <p class="section-intro">PARAANTA — Parenting and Healthy Pregnancy Talks — ingin menjadi ruang untuk berbagi informasi tentang kehamilan, persiapan menjadi orang tua, dan pengasuhan awal.</p>
+        <h2 class="section-title" id="guide-title">Mulai dari panduan kehamilan</h2>
+        <p class="section-intro">Pilih topik sesuai kebutuhan. Setiap panduan berisi informasi umum untuk membantu Anda memahami hal yang perlu disiapkan dan dibicarakan dengan tenaga kesehatan.</p>
         <div class="guide-grid">
           <article class="guide-card">
             <span class="guide-number" aria-hidden="true">01</span>
-            <h3>Kehamilan</h3>
-            <p>Catatan untuk menemani perjalanan dan membantu menyiapkan pertanyaan saat berkonsultasi.</p>
+            <h3><a href="awal-mula-kehamilan.html">Awal mula kehamilan</a></h3>
+            <p>Kenali proses awal kehamilan dan perkembangan calon bayi dalam tiap trimester.</p>
+            <a class="text-link" href="awal-mula-kehamilan.html">Baca panduan <span aria-hidden="true">→</span></a>
           </article>
           <article class="guide-card">
             <span class="guide-number" aria-hidden="true">02</span>
-            <h3>Persiapan orang tua</h3>
-            <p>Ide dan cerita seputar persiapan menyambut anggota keluarga baru.</p>
+            <h3><a href="pemeriksaan-kehamilan.html">Persiapan pemeriksaan</a></h3>
+            <p>Siapkan pertanyaan dan hal penting sebelum bertemu bidan atau dokter.</p>
+            <a class="text-link" href="pemeriksaan-kehamilan.html">Lihat checklist <span aria-hidden="true">→</span></a>
           </article>
           <article class="guide-card">
             <span class="guide-number" aria-hidden="true">03</span>
-            <h3>Pengasuhan awal</h3>
-            <p>Ruang untuk belajar, bertanya, dan bertukar pengalaman dengan hangat.</p>
+            <h3><a href="tanda-bahaya-kehamilan.html">Kenali tanda bahaya</a></h3>
+            <p>Pelajari keluhan yang perlu segera dinilai oleh tenaga kesehatan.</p>
+            <a class="text-link" href="tanda-bahaya-kehamilan.html">Baca tanda bahaya <span aria-hidden="true">→</span></a>
           </article>
         </div>
         <div class="note">Informasi di PARAANTA bersifat edukatif dan tidak menggantikan pemeriksaan atau saran dari dokter dan bidan.</div>
@@ -518,17 +525,17 @@
       <div class="wrap contact-layout">
         <div class="contact-copy">
           <p class="eyebrow section-kicker">Kami siap mendengar</p>
-          <h2 class="section-title" id="contact-title">Aduan, pertanyaan, atau ingin berkonsultasi?</h2>
-          <p>Sampaikan pertanyaan atau masukan kepada pengelola PARAANTA melalui ikon WhatsApp atau email yang tersedia di halaman ini.</p>
-          <p>Mohon jangan mengirimkan nomor identitas, rekam medis, atau data pribadi yang tidak diperlukan. Untuk masalah kesehatan, hubungi dokter atau bidan Anda.</p>
+          <h2 class="section-title" id="contact-title">Pertanyaan atau masukan?</h2>
+          <p>Hubungi pengelola PARAANTA melalui WhatsApp atau email untuk menyampaikan pertanyaan umum, masukan, atau aduan.</p>
+          <p>Untuk keluhan kesehatan atau saran yang sesuai kondisi pribadi, hubungi dokter atau bidan. Mohon jangan mengirimkan nomor identitas, rekam medis, atau data pribadi yang tidak diperlukan.</p>
         </div>
         <div class="contact-card">
-          <p class="eyebrow section-kicker">Kontak person aduan</p>
-          <h3>Hubungi pengelola PARAANTA</h3>
+          <p class="eyebrow section-kicker">Kontak pengelola</p>
+          <h3>Pilih kanal kontak</h3>
           <p>Klik ikon WhatsApp untuk membuka percakapan, atau ikon email untuk menulis pesan di Gmail.</p>
           <div class="contact-person">
             <div class="contact-avatar" aria-hidden="true">P</div>
-            <div><strong>Sucitra Afrianty, A.Md.Keb.</strong><span>Kontak person aduan PARAANTA</span></div>
+            <div><strong>Sucitra Afrianty, A.Md.Keb.</strong><span>Pengelola PARAANTA</span></div>
           </div>
             <div class="contact-actions" aria-label="Kanal kontak">
               <a class="button button-whatsapp" href="https://wa.me/6282293644399" target="_blank" rel="noopener noreferrer" aria-label="Hubungi Sucitra Afrianty melalui WhatsApp" title="WhatsApp">
@@ -556,7 +563,7 @@
           <p class="eyebrow section-kicker">Tentang kami</p>
           <h2 id="about-title">Sebuah ruang yang dibuat dengan kepedulian.</h2>
           <p>PARAANTA dibuat untuk menemani calon ibu dan keluarga melalui informasi yang mudah dipahami, cerita yang saling menguatkan, serta ruang untuk bertanya dan berbagi.</p>
-          <p>Ruang ini dikelola oleh Sucitra Afrianty, A.Md.Keb. PARAANTA dibuat sebagai ruang informasi yang ramah dan mudah dipahami, sekaligus tempat untuk bertanya dan berbagi cerita tentang kehamilan serta persiapan menjadi orang tua.</p>
+          <p>Ruang ini dikelola oleh Sucitra Afrianty, A.Md.Keb. dengan tujuan menghadirkan informasi tentang kehamilan dan persiapan menjadi orang tua dalam bahasa yang ramah dan mudah dipahami.</p>
           <div class="mission">“Membuat perjalanan kehamilan dan menjadi orang tua terasa lebih didampingi.”</div>
         </div>
       </div>
@@ -567,10 +574,14 @@
     <div class="wrap footer-inner">
       <p>© 2026 PARAANTA · Parenting and Healthy Pregnancy Talks</p>
       <p>Informasi edukatif, bukan pengganti saran tenaga kesehatan.</p>
-      <nav class="footer-links" aria-label="Kebijakan situs">
+      <nav class="footer-links" aria-label="Navigasi footer">
+        <a href="panduan-kehamilan.html">Panduan Kehamilan</a>
+        <a href="artikel.html">Artikel</a>
+        <a href="#kontributor">Kirim tulisan</a>
+        <a href="#tentang">Tentang</a>
         <a href="privacy.html">Kebijakan Privasi</a>
         <a href="editorial.html">Pedoman Editorial</a>
-        <a href="#aduan">Hubungi pengelola</a>
+        <a href="#aduan">Kontak</a>
       </nav>
     </div>
   </footer>
@@ -686,7 +697,7 @@
         }
         if (asksToContact) {
           return {
-            text: 'Tentu. Untuk menyampaikan pertanyaan, masukan, atau aduan kepada Sucitra Afrianty, A.Md.Keb., silakan pilih WhatsApp atau email. Ikon ini akan membuka kanal yang Anda pilih.',
+            text: 'Untuk pertanyaan umum, masukan, atau aduan kepada pengelola PARAANTA, silakan pilih WhatsApp atau email. Untuk saran medis sesuai kondisi pribadi, hubungi dokter atau bidan Anda.',
             links: contactLinks(),
           };
         }
@@ -700,34 +711,34 @@
           if (asksAboutWriting) {
             return {
               text: 'Boleh. Jika Anda punya ide atau naskah untuk dibagikan, sampaikan kepada pengelola lewat WhatsApp atau email. Tulisan akan ditinjau, dan karya kontributor baru diterbitkan setelah mendapat izin penulis.',
-              links: [sectionLink('#artikel', 'Lihat alur kontribusi'), ...contactLinks()],
+              links: [sectionLink('#kontributor', 'Lihat alur kontribusi'), ...contactLinks()],
             };
           }
           if (asksForLatest) {
             return {
-              text: 'Artikel terbaru PARAANTA adalah “Awal Mula Kehamilan”. Tulisan kontributor juga akan dicantumkan setelah mendapat izin penulis.',
-              links: [sectionLink('awal-mula-kehamilan.html', 'Baca Awal Mula Kehamilan'), sectionLink('#dashboard-artikel', 'Lihat artikel terbaru')],
+              text: 'Buka daftar artikel untuk melihat tulisan yang tersedia tentang awal kehamilan, persiapan pemeriksaan, dan tanda bahaya.',
+              links: [sectionLink('awal-mula-kehamilan.html', 'Baca Awal Mula Kehamilan'), sectionLink('artikel.html', 'Lihat semua artikel')],
             };
           }
           return {
-            text: 'PARAANTA sudah memuat artikel “Awal Mula Kehamilan” sebagai pengantar tentang proses kehamilan dan perawatan awal. Untuk pertanyaan yang bergantung pada kondisi pribadi, konsultasikan dengan dokter atau bidan.',
-            links: [sectionLink('awal-mula-kehamilan.html', 'Baca Awal Mula Kehamilan'), sectionLink('#panduan', 'Lihat Panduan'), ...contactLinks()],
+            text: 'Artikel PARAANTA mencakup awal kehamilan, persiapan pemeriksaan, dan tanda bahaya. Panduan ini bersifat edukatif; untuk pertanyaan sesuai kondisi pribadi, hubungi dokter atau bidan.',
+            links: [sectionLink('artikel.html', 'Lihat semua artikel'), sectionLink('panduan-kehamilan.html', 'Buka Panduan Kehamilan'), ...contactLinks()],
           };
         }
         if (/panduan|kehamil|hamil|orang tua|orangtua|pengasuhan|parenting|ibu|bayi|persalinan/.test(q)) {
           return {
-            text: 'Di bagian Panduan, PARAANTA membahas kehamilan sehat, persiapan menjadi orang tua, dan pengasuhan awal. Materinya bersifat edukatif, ya, dan tidak menggantikan pemeriksaan atau saran dokter maupun bidan.',
-            links: [sectionLink('#panduan', 'Buka bagian Panduan')],
+            text: 'Panduan Kehamilan PARAANTA saat ini membahas awal kehamilan, persiapan pemeriksaan, dan tanda bahaya. Materinya bersifat edukatif dan tidak menggantikan pemeriksaan atau saran dokter maupun bidan.',
+            links: [sectionLink('panduan-kehamilan.html', 'Buka Panduan Kehamilan')],
           };
         }
         if (/siapa|profil|profile|pengelola|tentang|tujuan|arti paraanta|apa itu paraanta|kepanjangan/.test(q)) {
           return {
-            text: 'PARAANTA (Parenting and Healthy Pregnancy Talks) adalah ruang informasi, cerita, dan konsultasi tentang kehamilan serta persiapan menjadi orang tua. Situs ini dikelola oleh Sucitra Afrianty, A.Md.Keb.',
+            text: 'PARAANTA (Parenting and Healthy Pregnancy Talks) adalah ruang informasi dan cerita tentang kehamilan serta persiapan menjadi orang tua. Situs ini dikelola oleh Sucitra Afrianty, A.Md.Keb.',
             links: [sectionLink('#tentang', 'Kenali PARAANTA')],
           };
         }
         return {
-          text: 'Maaf, saya belum menemukan informasi itu di isi PARAANTA. Supaya pertanyaan Anda bisa dibantu lebih lanjut, silakan berkonsultasi dengan pengelola melalui WhatsApp atau email.',
+          text: 'Maaf, saya belum menemukan informasi itu di isi PARAANTA. Untuk mengirim pertanyaan umum atau masukan, Anda dapat menghubungi pengelola melalui WhatsApp atau email.',
           links: contactLinks(),
         };
       }
